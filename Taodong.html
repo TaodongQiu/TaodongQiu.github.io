@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Index Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylefortd.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+  <script>
+  function compute_x_plus_y(x,y) {
+    var z = 0;
+    x = parseInt(x);
+    y = parseInt(y);
+    z = x + y;
+    return z;
+  }
+  function ask_for_x_n_y() {
+    var x = prompt("Enter x value");
+    var y = prompt("Enter y value");
+    var z = compute_x_plus_y(x,y);
+    var x = document.getElementById("demo");
+    x.style.fontSize = "25px";
+    x.style.color = "white";
+    document.getElementById("demo").innerHTML = "The answer is " + z;
+  }
+  function compute_x_minus_y(x,y) {
+    var z = 0;
+    x = parseInt(x);
+    y = parseInt(y);
+    z = x - y;
+    return z;
+  }
+  function ask_for_x_m_y() {
+    var x = prompt("Enter x value");
+    var y = prompt("Enter y value");
+    var z = compute_x_minus_y(x,y);
+    var x = document.getElementById("demo");
+    x.style.fontSize = "25px";
+    x.style.color = "white";
+    document.getElementById("demo").innerHTML = "The answer is " + z;
+  }
+  function compute_x_times_y(x,y) {
+    var z = 0;
+    x = parseInt(x);
+    y = parseInt(y);
+    z = x * y;
+    return z;
+  }
+  function ask_for_x_t_y() {
+    var x = prompt("Enter x value");
+    var y = prompt("Enter y value");
+    var z = compute_x_times_y(x,y);
+    var x = document.getElementById("demo");
+    x.style.fontSize = "25px";
+    x.style.color = "white";
+    document.getElementById("demo").innerHTML = "The answer is " + z;
+  }
+  function compute_x_divides_y(x,y) {
+    var z = 0;
+    x = parseInt(x);
+    y = parseInt(y);
+    z = x / y;
+    return z;
+  }
+  function ask_for_x_d_y() {
+    var x = prompt("Enter x value");
+    var y = prompt("Enter y value");
+    var z = compute_x_divides_y(x,y);
+    var x = document.getElementById("demo");
+    x.style.fontSize = "25px";
+    x.style.color = "white";
+    document.getElementById("demo").innerHTML = "The answer is " + z;
+  }
+
+</script>
+</head>
+
+<body>
+<div class="container">
+
+
+<!-- Main content -->
+<h1>Arithmetic Robot</h1>
+
+
+<p id="hello">Hi, I am an arithmetic robot.
+
+<p id="demo">I can help you solve any arithmetic mathematics problems :)
+
+<p>Check the answer to see if I am helpful, haha!
+
+<!-- Sign and date the page, it's only polite! -->
+<br>
+<button type="button" class="btn btn-primary" onclick="ask_for_x_n_y();">X + Y = ?</button>
+<button type="button" class="btn btn-primary" onclick="ask_for_x_m_y();">X - Y = ?</button>
+<button type="button" class="btn btn-primary" onclick="ask_for_x_t_y();">X * Y = ?</button>
+<button type="button" class="btn btn-primary" onclick="ask_for_x_d_y();">X ÷ Y = ?</button>
+
+
+<address>Made 18 October 2018<br>
+  by Taodong.</address>
+</div>
+</body>
+</html>

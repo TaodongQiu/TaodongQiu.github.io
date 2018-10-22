@@ -1,0 +1,21 @@
+body {
+    padding-left: 2em;
+    padding-top:2em;
+    color: white;
+    background-color: black;
+    font-family: American Typewriter, Charlemagnestd, Arial,
+     SunSans-Regular, sans-serif;
+}
+h1 {font-size: 50px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+p {font-size: 25px;
+  padding-bottom: 5px;
+}
+
+
+address {
+   margin-top: 1em;
+   padding-top: 1em;
+   border-top: thin dotted }

@@ -67,11 +67,12 @@ $(document).ready(function(){
                            label: 'Name'
                        },
                        y: {
-                           label: 'Box Office'
+                           label: 'Box office'
                        },
                      }
                  });
 
           }); // end .getJSON
        }); // end button
+
 }); // document ready

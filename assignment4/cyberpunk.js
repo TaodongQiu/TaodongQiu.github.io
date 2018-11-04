@@ -3,7 +3,7 @@ $(document).ready(function(){
      $("button#roll_up").click(function() {
        var table1_items = [];
        var i = 0;
-       var airtable_read_endpoint = "https://api.airtable.com/v0/app2R88MfJ0gFM8n4/Movies?api_key=key0WrAysAprBhXUB&maxRecords=3&view=Grid%20view";
+       var airtable_read_endpoint = "https://api.airtable.com/v0/app2R88MfJ0gFM8n4/Movies?api_key=key0WrAysAprBhXUB";
        var table1_dataSet = [];
        $.getJSON(airtable_read_endpoint, function(result) {
               $.each(result.records, function(key,value) {
@@ -45,7 +45,7 @@ $(document).ready(function(){
          var table2_items = [];
          var i = 0;
          var airtable_read_endpoint =
-         "https://api.airtable.com/v0/app2R88MfJ0gFM8n4/Movies?api_key=key0WrAysAprBhXUB&maxRecords=3&view=Grid%20view";
+         "https://api.airtable.com/v0/app2R88MfJ0gFM8n4/Movies?api_key=key0WrAysAprBhXUB";
          var table2_dataSet = [];
          $.getJSON(airtable_read_endpoint, function(result) {
                 $.each(result.records, function(key,value) {

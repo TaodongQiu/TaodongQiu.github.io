@@ -61,3 +61,10 @@ h1{
   line-height: 20px;
   font-size: 18px;
 }
+
+h3{
+  font-family: arial;
+  color:black;
+  text-align: left;
+  font-size: 18px;
+}

@@ -13,7 +13,7 @@ $(document).ready(function(){
                        table1_items.push(value.fields.Director);
                        table1_items.push(value.fields.Actors);
                        table1_items.push(value.fields.IMDB_link);
-                       table1_items.push(value.fields.Box_Office);
+                       table1_items.push(value.fields.Box_office);
                        table1_dataSet.push(table1_items);
                 }); // end .each
 
@@ -51,7 +51,7 @@ $(document).ready(function(){
                 $.each(result.records, function(key,value) {
                     table2_items = [];
                         table2_items.push(value.fields.Name);
-                        table2_items.push(value.fields.Box_Office);
+                        table2_items.push(value.fields.Box_office);
                         table2_dataSet.push(table2_items);
                         console.log(table2_items);
                  }); // end .each

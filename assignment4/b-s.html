@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Town Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="leaflet.css">
+  <link rel="shortcut icon" href="">
+  <script src="leaflet.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+  </head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home page</a>
+        <li><a href="musings.html">Musings</a>
+        <li class="active"><a href="town.html">My town</a>
+        <li><a href="links.html">Links</a>
+      </ul>
+    </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <h1>Town Page</h1>
+      <p>Welcome to my town page!</p>
+      <div id="map" style="width: 800px; height: 440px; border: 1px solid #AAA;"></div>
+      <button type="button" class="btn btn-warning" id='roll_up' onclick="show_districts();">Show Districts</button><br>
+    </div>
+  </div>
+</div>
+<script>
+    var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,})
+
+    var map = L.map('map')
+          .addLayer(mapboxTiles)
+          .setView([22.287111, 114.191667], 13);
+
+    var items = [];
+    var airtable_read_endpoint = "https://api.airtable.com/v0/appM38HXlEVhxmnqx/venues?api_key=keyTcsTzckqyBTlk8&sortField=_createdTime&sortDirection=desc";
+    var data = [];
+    $.getJSON(airtable_read_endpoint, function(result) {
+           $.each(result.records, function(key,value) {
+               items = {};
+                   items["name"] = value.fields.Name;
+                   items["url"] = value.fields.url;
+                   items["image_url"] = value.fields.image_url;
+                   items["latitud"] = value.fields.Lat;
+                   items["longitud"] = value.fields.Lng;
+                   data.push(items);
+                   console.log(items);
+            }); // end .each
+    }); // end getJSON
+</script>
+<script>
+function show_districts(){
+
+  for (var i in data) {
+      var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
+      L.marker( latlng )
+          .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
+          .addTo(map);
+  }
+}
+</script>
+</body>
+</html>

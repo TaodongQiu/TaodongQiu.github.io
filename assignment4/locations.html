@@ -29,8 +29,8 @@
       <li><a href="actors.html">Actors</a></li>
       <li><a href="locations.html">Filming Locations</a></li>
     </ul>
-
-          <div id="map" style="width: 800px; height: 440px; border: 1px solid #AAA;"></div>
+          <h3>Here are some famous filming locations of cyberpunk movies around the world.</h3>
+          <div id="map" style="width: 900px; height: 500px; border: 1px solid #AAA;"></div>
           <button type="button" class="btn btn-warning" id='roll_up' onclick="show_districts();">Show Filming Locations</button><br>
 
     <script>
@@ -38,7 +38,7 @@
 
         var map = L.map('map')
               .addLayer(mapboxTiles)
-              .setView([22.287111, 114.191667], 3);
+              .setView([22.287111, 114.191667], 2);
 
         var items = [];
         var airtable_read_endpoint = "https://api.airtable.com/v0/app2R88MfJ0gFM8n4/%20Filming%20Locations?api_key=key0WrAysAprBhXUB";
@@ -62,7 +62,7 @@
       for (var i in data) {
           var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
           L.marker( latlng )
-              .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
+              .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "300px"><br>'+data[i].name + '</a>' )
               .addTo(map);
       }
     }

@@ -79,6 +79,16 @@ h3{
 	text-transform:uppercase;
 	font-weight:400;
 }
+h4{
+	font-size:34px;
+	color:#222222;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:700;
+	letter-spacing: -1px;
+	margin:30px 0 15px 0;
+	text-align:center;
+	text-transform:uppercase;
+}
 h6{
 	font-size:16px;
 	color:#888888;
@@ -91,6 +101,7 @@ p{
 	line-height:24px;
 	margin:0;
 }
+
 
 /* Header Styles
 ---------------------------------*/
@@ -146,8 +157,8 @@ color: #fff;
 
 .link{
 	padding:15px 35px;
-	background:#7cc576;
-	color:#fff !important;
+	background:#fdee06;
+	color:black !important;
 	font-size:16px;
 	font-weight:400;
 	font-family: 'Montserrat', sans-serif;
@@ -162,14 +173,14 @@ color: #fff;
 }
 .link:hover {
 	text-decoration:none;
-	color:#7cc576 !important;
-	background:#fff;
+	color:#fdee06 !important;
+	background:black;
 }
 
 .link:active, .link:focus {
-	background: #7cc576;
+	background: #fdee06;
 	text-decoration:none;
-	color:#fff !important;
+	color:black !important;
 }
 
 /* Navigation
@@ -206,7 +217,7 @@ color: #fff;
 
 .main-nav li a:hover{
 	text-decoration:none;
-	color: #7cc576;
+	color: #fdee06;
 }
 
 .small-logo{

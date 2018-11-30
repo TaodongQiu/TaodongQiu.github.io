@@ -29,6 +29,21 @@
 	<script type="text/javascript" src="js/magnific-popup.js"></script>
 	<script src="contactform/contactform.js"></script>
 
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+ <script src='scriptlib.js'></script>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+ <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+ <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.js"></script>
+ <link href="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.css" rel="stylesheet" type="text/css">
+ <link rel="stylesheet" href="leaflet.css">
+ <link rel="shortcut icon" href="">
+ <script src="leaflet.js"></script>
+ <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+
 	<!-- =======================================================
     Theme Name: Knight
     Theme URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
@@ -191,6 +206,53 @@
 
 	<!--main-section-end-->
 
+	<section class="main-section client-part" id="client">
+		<!--main-section client-part-start-->
+		<div class="container">
+			<h4>Locations</h4>
+			<h6>Filming Locations of Cyberpunk Movies Around The World</h6>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="client-part-haead wow fadeInDown delay-05">Here are some famous filming locations of cyberpunk movies around the world.</p>
+				</div>
+			</div>
+			<div id="map" style="width: 1120px; height: 500px; border: 1px solid #AAA; "></div>
+          <button type="button" class="btn btn-warning" id='roll_up' onclick="show_districts();">Show Filming Locations</button><br>
+
+    <script>
+        var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,})
+        var map = L.map('map')
+              .addLayer(mapboxTiles)
+              .setView([22.287111, 5.191667], 2);
+        var items = [];
+        var airtable_read_endpoint = "https://api.airtable.com/v0/app2R88MfJ0gFM8n4/%20Filming%20Locations?api_key=key0WrAysAprBhXUB";
+        var data = [];
+        $.getJSON(airtable_read_endpoint, function(result) {
+               $.each(result.records, function(key,value) {
+                   items = {};
+                       items["name"] = value.fields.Name;
+                       items["url"] = value.fields.Intro_link;
+                       items["image_url"] = value.fields.Photo;
+                       items["latitud"] = value.fields.Lat;
+                       items["longitud"] = value.fields.Lng;
+                       data.push(items);
+                       console.log(items);
+                }); // end .each
+        }); // end getJSON
+    </script>
+    <script>
+    function show_districts(){
+      for (var i in data) {
+          var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
+          L.marker( latlng )
+              .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "260px"><br>'+data[i].name + '</a>' )
+              .addTo(map);
+      }
+    }
+    </script>
+		</div>
+	</section>
+	<!--main-section client-part-end-->
 
 
 	<section class="main-section team" id="team">

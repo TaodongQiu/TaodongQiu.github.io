@@ -264,6 +264,13 @@ color: #fff;
 .featured-work h2{
 	text-align:left;
 }
+a{
+color: black;
+font-style: italic;
+}
+a:hover{
+  color: #fdee06;
+}
 .featured-box{
 	padding:0 0 0 0;
 	margin-bottom:25px;
@@ -448,6 +455,34 @@ img {
 }
 .client li a span{
 	color:#f1f1f1;
+}
+.client p{
+
+}
+#roll_up {
+  	padding:15px 35px;
+  	background:#fdee06;
+    border-color: transparent;
+  	color:black !important;
+  	font-size:16px;
+  	font-weight:400;
+    font-style: italic;
+  	font-family: 'Montserrat', sans-serif;
+  	display:inline-block;
+  	border-radius:3px;
+  	text-transform:uppercase;
+  	margin-bottom:20px;
+}
+#roll_up:hover{
+  text-decoration:none;
+  color:#fdee06 !important;
+  background:black;
+}
+#roll_up:active, #roll_up:focus {
+	background: #fdee06;
+	text-decoration:none;
+	color:black !important;
+  border-color: transparent;
 }
 .quote-right{
 	font-style:normal;
@@ -792,7 +827,7 @@ border: 2px solid #fff;
 	color:#cccccc;
 	font-size:14px;
 	display:block;
-	text-align:center;
+  text-align:center;
 }
 .copyright a, .credits a{
 	color:#7cc576;
